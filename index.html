@@ -136,13 +136,14 @@ footer {
 <section id="inscricao">
   <h2>INSCRIÇÕES</h2>
   <p>Preencha para demonstrar interesse em participar.</p>
-  <form id="form">
+  <form id="form" action="https://formsubmit.app/f/zx42rznayy" method="POST">
+    <input type="hidden" name="_subject" value="Nova inscrição BONDEZN">
     <label>Nome ou apelido</label>
-    <input id="nome" required maxlength="60">
+    <input id="nome" name="nome" required maxlength="60">
     <label>Instagram (opcional)</label>
-    <input id="instagram" maxlength="80">
+    <input id="instagram" name="instagram" maxlength="80">
     <label>Por que deseja participar?</label>
-    <textarea id="motivo" required maxlength="500"></textarea>
+    <textarea id="motivo" name="motivo" required maxlength="500">
     <button type="submit">ENVIAR INSCRIÇÃO</button>
   </form>
   <p id="aviso"></p>
@@ -159,22 +160,6 @@ footer {
 <footer>
   © BONDEZN — BONDE DA ZONA NORTE
 </footer>
-
-<script>
-document.getElementById('form').addEventListener('submit',function(e){
-  e.preventDefault();
-  const nome=document.getElementById('nome').value;
-  const insta=document.getElementById('instagram').value;
-  const motivo=document.getElementById('motivo').value;
-  const assunto=encodeURIComponent('Inscrição BONDEZN');
-  const corpo=encodeURIComponent(
-    'Nome: '+nome+'\nInstagram: '+insta+'\nMotivo: '+motivo
-  );
-  document.getElementById('aviso').textContent=
-    'Revise e envie a inscrição no seu aplicativo de e-mail.';
-  window.location.href='mailto:?subject='+assunto+'&body='+corpo;
-});
-</script>
 
 </body>
 </html>
